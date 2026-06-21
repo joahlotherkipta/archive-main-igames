@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+    <title>爱游戏体育 · 稳定陪伴的自然入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f4f7fa;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: #2c3e4f;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .wrapper {
+            max-width: 880px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 24px;
+            flex: 1;
+        }
+        /* 深色头图区 */
+        .hero {
+            background: #0b1a2a;
+            background-image: radial-gradient(circle at 20% 30%, #1e3b4f 0%, #0b1a2a 80%);
+            color: #e6edf2;
+            padding: 60px 0 56px;
+            margin: 32px 0 40px;
+            border-radius: 32px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+        .hero .tagline {
+            font-size: 1.15rem;
+            color: #b7cdde;
+            max-width: 540px;
+            margin: 0 auto;
+            font-weight: 350;
+            padding: 0 16px;
+            line-height: 1.6;
+        }
+        .hero .tagline span {
+            color: #b7e1fa;
+        }
+        /* 正文区卡片风格 */
+        .content-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 36px 40px 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02), 0 2px 8px rgba(0, 20, 30, 0.03);
+        }
+        .content-card p {
+            margin-bottom: 1.2rem;
+        }
+        .content-card p:last-child {
+            margin-bottom: 0;
+        }
+        .content-card h2 {
+            font-size: 1.6rem;
+            font-weight: 450;
+            margin-bottom: 20px;
+            color: #1f2e3c;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2ecf5;
+        }
+        .content-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1.6rem 0 0.6rem;
+            color: #26475e;
+        }
+        /* 特点列表 */
+        .feature-list {
+            list-style: none;
+            margin: 0 0 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .feature-list li {
+            background: #f0f5fa;
+            border-radius: 60px;
+            padding: 10px 22px;
+            font-size: 0.98rem;
+            color: #1f3a4b;
+            border: 1px solid #d7e3ed;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .feature-list li::before {
+            content: "·";
+            font-weight: 700;
+            font-size: 1.4rem;
+            line-height: 1;
+            margin-right: 10px;
+            color: #3e7d9e;
+        }
+        .feature-list li:hover {
+            background: #e4eef8;
+            border-color: #abc1d2;
+        }
+        .highlight-link {
+            color: #1d6b8f;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #9bbfd6;
+            transition: border 0.2s, color 0.2s;
+        }
+        .highlight-link:hover {
+            color: #0d4b69;
+            border-bottom: 1px solid #0d4b69;
+        }
+        .soft-quote {
+            background: #eef4f9;
+            border-left: 4px solid #3e7d9e;
+            padding: 16px 20px;
+            border-radius: 0 20px 20px 0;
+            margin: 1.5rem 0;
+            font-style: normal;
+            color: #1d3343;
+        }
+        .faq-item {
+            margin-top: 20px;
+            padding: 14px 0;
+            border-bottom: 1px solid #eaeef3;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1f3f55;
+            margin-bottom: 3px;
+            font-size: 1.02rem;
+        }
+        .scene-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin: 24px 0 8px;
+        }
+        .scene-card {
+            background: #f8fbfd;
+            border: 1px solid #d9e4ed;
+            border-radius: 24px;
+            padding: 18px 20px;
+            flex: 1 1 180px;
+            min-width: 130px;
+            text-align: center;
+            color: #1f3a4b;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+        }
+        .scene-card:hover {
+            background: #eaf1f9;
+            box-shadow: 0 4px 10px rgba(0, 30, 60, 0.04);
+        }
+        .scene-card .emoji-place {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 6px;
+            opacity: 0.8;
+        }
+        .scene-card .label {
+            font-weight: 460;
+            font-size: 0.95rem;
+        }
+        .footer-note {
+            text-align: center;
+            margin: 24px 0 40px;
+            color: #6d859b;
+            font-size: 0.92rem;
+            border-top: 1px solid #dbe6ef;
+            padding-top: 28px;
+            letter-spacing: 0.3px;
+        }
+        .footer-note a {
+            color: #3e7d9e;
+            text-decoration: none;
+            border-bottom: 1px dotted #b2cbd9;
+        }
+        .footer-note a:hover {
+            border-bottom: 1px solid #1d6b8f;
+        }
+        @media (max-width: 640px) {
+            .wrapper {
+                padding: 0 16px;
+            }
+            .hero {
+                padding: 44px 16px 40px;
+                margin: 20px 0 28px;
+                border-radius: 24px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .content-card {
+                padding: 24px 20px 28px;
+                border-radius: 22px;
+            }
+            .content-card h2 {
+                font-size: 1.3rem;
+            }
+            .feature-list {
+                gap: 10px;
+            }
+            .feature-list li {
+                font-size: 0.92rem;
+                padding: 8px 16px;
+            }
+            .scene-grid {
+                gap: 12px;
+            }
+            .scene-card {
+                flex: 1 1 130px;
+                padding: 14px 12px;
+            }
+        }
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .hero .tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <!-- 深色头图 · 故事开始 -->
+    <div class="hero">
+        <h1>爱游戏体育</h1>
+        <div class="tagline">
+            每个稳定的入口，都值得被温柔相待。<br>
+            <span>从这里开始，你找到的是一面安静的路标。</span>
+        </div>
+    </div>
+
+    <!-- 承接段落 · 关于此处 -->
+    <div class="content-card">
+        <h2>不只是链接，更是一种方向感</h2>
+        <p>在信息流动得比步伐还快的日子里，我们常需要一个不会轻易改变的地标。<a href="https://main-igames-sport.com" class="highlight-link">爱游戏体育</a>就是这样一个存在 —— 它不喧嚣，不追赶，只是安静地待在属于它的位置，为每一位经过的人提供清晰、直接的入口。</p>
+        <p>页面本身不是终点，而是起点。这里没有复杂的引导，也没有让人分心的装饰。你看到的，是经过梳理的信息、克制的用色，以及一种试图让浏览变回一件自然事的诚意。</p>
+
+        <div class="soft-quote">
+            “保持简单，但保持准确。”<br>
+            —— 这是我们在设计每一处细节时，默念的原则。
+        </div>
+    </div>
+
+    <!-- 特点列表 · 温和的力量 -->
+    <div class="content-card">
+        <h3>一些值得注意的特点</h3>
+        <ul class="feature-list">
+            <li>结构清晰，减少无关跳转</li>
+            <li>深色与浅色自然过渡</li>
+            <li>响应式设计，适配日常设备</li>
+            <li>文字优先，信息层级明确</li>
+            <li>链接可信，指向一致</li>
+        </ul>
+        <p style="margin-top: 20px;">这些特点听起来或许平淡，但正是平淡之处，构成了长久使用的信任。毕竟，一个页面最好的状态，就是让你感觉不到它的存在，只感受到它的好用。</p>
+    </div>
+
+    <!-- 场景卡片·日常切入 -->
+    <div class="content-card">
+        <h3>一些你可能熟悉的场景</h3>
+        <div class="scene-grid">
+            <div class="scene-card">
+                <span class="emoji-place">📱</span>
+                <span class="label">通勤路上快速浏览</span>
+            </div>
+            <div class="scene-card">
+                <span class="emoji-place">💻</span>
+                <span class="label">工作间隙查看信息</span>
+            </div>
+            <div class="scene-card">
+                <span class="emoji-place">🌙</span>
+                <span class="label">晚间安静地探索</span>
+            </div>
+            <div class="scene-card">
+                <span class="emoji-place">📖</span>
+                <span class="label">作为常备参考入口</span>
+            </div>
+        </div>
+        <p style="margin-top: 22px;">无论你身处哪个场景，<a href="https://main-igames-sport.com" class="highlight-link">爱游戏体育</a>都以同一种可靠的姿态出现。页面加载迅速，内容一目了然，你不需要额外学习如何操作 —— 它本就是为你日常使用而准备的。</p>
+    </div>
+
+    <!-- FAQ 摘要（温和式） -->
+    <div class="content-card">
+        <h3>你可能留意到的细节</h3>
+        <div class="faq-item">
+            <strong>这个页面主要提供什么？</strong>
+            <p>它是一份介绍与入口说明，帮助你了解 <a href="https://main-igames-sport.com" class="highlight-link">爱游戏体育</a> 的基本定位和风格。页面本身不搜集信息，也不强制交互，你可以自由浏览。</p>
+        </div>
+        <div class="faq-item">
+            <strong>链接指向哪里？</strong>
+            <p>页面中的链接一致指向 https://main-igames-sport.com，那是你进一步了解相关内容的自然去处。链接以文本形式嵌入，不打扰阅读节奏。</p>
+        </div>
+        <div class="faq-item">
+            <strong>为什么页面看起来比较简洁？</strong>
+            <p>我们相信，信息本身已经足够有力。过多的装饰反而会分散注意力。所以这里选择用留白、字体层级和温和的色彩来组织内容，让你更快找到自己关心的部分。</p>
+        </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="content-card" style="text-align: center; padding-bottom: 32px;">
+        <p style="font-size: 1.08rem; color: #1f3a4b;">每一扇门都有自己的打开方式。</p>
+        <p style="margin-top: 8px; color: #3e5b6f;">这里是 <a href="https://main-igames-sport.com" class="highlight-link">爱游戏体育</a>，一扇简单、干净、始终如一的门。</p>
+        <p style="margin-top: 20px; font-size: 0.95rem; color: #5b7387;">感谢你读到结尾，希望你在这里找到你需要的。</p>
+    </div>
+
+    <div class="footer-note">
+        <span>爱游戏体育 · 入口稳定 · 页面常新</span><br>
+        <span style="font-size: 0.88rem; opacity: 0.7;">仅作介绍用途 · 内容基于真实结构呈现</span>
+    </div>
+
+</div>
+</body>
+</html>
