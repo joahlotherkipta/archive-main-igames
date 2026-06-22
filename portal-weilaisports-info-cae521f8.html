@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>纬来体育 · 赛事专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f5f1;
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            color: #2e2b27;
+            line-height: 1.7;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #fefcf9;
+            border-radius: 28px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+
+        /* Hero 头图区 — 杂志封面感 */
+        .hero {
+            background: #ece7e0;
+            padding: 3rem 2.5rem 2.2rem;
+            border-bottom: 1px solid #ddd6cc;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "⚽ 纬来视角";
+            position: absolute;
+            bottom: 0.6rem;
+            right: 2rem;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #8f8579;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #29231e;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #5f554b;
+            border-left: 3px solid #bfa78e;
+            padding-left: 1.2rem;
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        /* 主体内容区 — 文章排版 */
+        .content {
+            padding: 2.5rem 2.5rem 1.8rem;
+        }
+
+        .section {
+            margin-bottom: 2.4rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #3d362f;
+            border-bottom: 2px solid #e3dbd0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            margin-bottom: 1.1rem;
+            text-indent: 2em;
+        }
+
+        /* 引用框 / 提示块 — 类似杂志 callout */
+        .callout {
+            background: #f2ede6;
+            border-left: 6px solid #bcaa94;
+            padding: 1.2rem 1.6rem;
+            margin: 1.8rem 0 1.8rem 0;
+            border-radius: 0 14px 14px 0;
+        }
+
+        .callout p {
+            text-indent: 0;
+            font-size: 0.98rem;
+        }
+
+        .callout strong {
+            color: #3b2e23;
+        }
+
+        /* 特色卡片 — 简洁双栏 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            background: #f9f5ef;
+            padding: 1.2rem 1rem;
+            border-radius: 18px;
+            border: 1px solid #e6ddd2;
+            transition: background 0.15s;
+        }
+
+        .feature-item h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+            color: #4a3f35;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            text-indent: 0;
+            font-size: 0.9rem;
+            color: #4f473e;
+            margin-bottom: 0;
+        }
+
+        /* 链接嵌入段落保持自然 */
+        a {
+            color: #826b54;
+            text-decoration: none;
+            border-bottom: 1px dotted #b7a289;
+            transition: border 0.1s, color 0.1s;
+        }
+
+        a:hover {
+            color: #4d3b2a;
+            border-bottom: 1px solid #826b54;
+        }
+
+        /* FAQ 摘要区 — 紧凑 */
+        .faq-mini {
+            background: #f6f1ea;
+            padding: 1.2rem 1.6rem;
+            border-radius: 18px;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+            border-bottom: 1px solid #e1d8cd;
+            padding-bottom: 0.5rem;
+        }
+
+        .faq-mini details:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #3d342c;
+            padding: 0.2rem 0;
+        }
+
+        .faq-mini details p {
+            text-indent: 0;
+            margin: 0.3rem 0 0.2rem 1rem;
+            font-size: 0.92rem;
+            color: #4f453c;
+        }
+
+        /* 页尾 */
+        .footer-note {
+            margin-top: 2.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #ddd6cc;
+            font-size: 0.9rem;
+            color: #6e655b;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-note span {
+            display: inline-block;
+            margin: 0 1rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem 2.5rem;
+            }
+            .hero {
+                padding: 1.8rem 1.5rem 1.8rem;
+            }
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            .content {
+                padding: 1.8rem 1.2rem 1.2rem;
+            }
+            .section-title {
+                font-size: 1.1rem;
+            }
+            .feature-grid {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .callout {
+                padding: 0.9rem 1.2rem;
+            }
+            .faq-mini {
+                padding: 0.9rem 1rem;
+            }
+            .hero::after {
+                right: 1.2rem;
+                bottom: 0.4rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero .sub {
+                font-size: 0.9rem;
+                padding-left: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 杂志封面式横幅 -->
+    <div class="hero">
+        <h1>纬来体育</h1>
+        <div class="sub">赛事纵深 · 收藏此刻 · 持续在场</div>
+    </div>
+
+    <div class="content">
+
+        <!-- 背景说明：为什么再次访问 -->
+        <div class="section">
+            <div class="section-title">再访 · 从关注到习惯</div>
+            <p>对于长期关注体育内容的用户而言，一个稳定的信息节点比碎片推送更具价值。<a href="https://portal-weilaisports.com">纬来体育</a>并非一次性目的地，而是一处值得反复回来的赛事档案与实时聚合地。从焦点比赛回溯到即将开赛的日程，每一次打开都能延续上次的观看脉络。</p>
+            <p>平台侧重视角的连贯性：赛程、战报与数据不再孤立，而是以赛事为单位形成专题链条。收藏一场比赛的意义，往往在数周后的复盘或系列对决中才真正显现。</p>
+        </div>
+
+        <!-- 引用块：提示收藏与书签 -->
+        <div class="callout">
+            <p><strong>💡 杂志提示</strong> 将 <a href="https://portal-weilaisports.com">纬来体育</a> 加入浏览器书签或收藏夹，可保留完整的浏览路径与自定义赛程关注。下次访问时无需重新搜索，直接从上次停留的赛事节点继续。</p>
+        </div>
+
+        <!-- 三段自然介绍：特点 + 场景 + 持续性 -->
+        <div class="section">
+            <div class="section-title">赛事信息 · 密度与秩序</div>
+            <p><a href="https://portal-weilaisports.com">纬来体育</a>的页面结构倾向于信息密度而非大图铺陈。每一项赛事均配有简明数据层：实时比分、历史交锋、阶段积分，并以时间轴方式展示近期赛果。对于习惯深度阅读赛况的用户，这种编排减少了跳转次数，在同一个视窗内即可完成信息对照。</p>
+            <p>同时，平台对「系列赛」与「锦标赛」做了独立归档。例如季后赛或小组赛阶段，每一轮的战绩都会自动归并，方便用户在两周后回头查阅某一场关键转折。这种设计尤其适合那些需要反复比较赛程走势的观赛者。</p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h4>📋 赛程纵览</h4>
+                <p>未来七天内赛事以卡片形式排列，点击即可查看对阵详情，无需跳转多个页面。</p>
+            </div>
+            <div class="feature-item">
+                <h4>📌 关注标记</h4>
+                <p>支持对特定联赛或球队添加关注标记，后续访问时高亮显示，减少遗漏。</p>
+            </div>
+            <div class="feature-item">
+                <h4>⚙️ 数据快照</h4>
+                <p>每场比赛下方附带关键数据快照：控球率、射门次数、犯规统计，便于快速复盘。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">持续在场 · 从收藏到回看</div>
+            <p>信息流时代，体育内容往往被即时消费后淹没。而 <a href="https://portal-weilaisports.com">纬来体育</a> 有意保留了「历史赛程」与「往期战报」的清晰入口。用户回溯两周前的一场比赛时，依然能够找到完整的文字报道与数据图表，而不是仅剩标题。这种对内容留存度的重视，使得平台更像一本可翻阅的赛事年鉴，而非仅限当下的直播页。</p>
+            <p>另外，页面内的「书签节点」功能允许用户标记某场比赛的具体分钟或关键事件，再次访问时直接从标记处展开。这种粒度级的关注机制，让反复查看同一赛事变得高效且有据可循。</p>
+        </div>
+
+        <!-- FAQ 摘要区  -->
+        <div class="faq-mini">
+            <details>
+                <summary>如何快速找到之前关注的赛事？</summary>
+                <p>在「赛程总览」板块顶部有筛选栏，可按联赛、日期或关注列表过滤。已标记的比赛会显示书签图标。</p>
+            </details>
+            <details>
+                <summary>页面数据多久更新一次？</summary>
+                <p>实时比分与赛果在比赛进行中每 60 秒刷新一次，赛后数据快照于完赛 5 分钟内生成。</p>
+            </details>
+            <details>
+                <summary>是否支持跨设备同步关注列表？</summary>
+                <p>目前关注列表基于浏览器本地存储，同一设备上同一浏览器可保持。未来将推出账号同步方案。</p>
+            </details>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="footer-note">
+            <span>纬来体育 · 杂志专题</span>
+            <span>｜</span>
+            <span>持续关注，从容回看</span>
+        </div>
+
+    </div><!-- end content -->
+</div><!-- end container -->
+</body>
+</html>
